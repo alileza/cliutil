@@ -60,7 +60,7 @@ func newFlag(kind reflect.Kind, f reflect.StructField, dest interface{}) cli.Fla
 			Hidden:   isTagExist(f, "hidden"),
 			Usage:    getFlagUsage(f),
 		}
-	case reflect.Float32, reflect.Float64:
+	case reflect.Float64:
 		val, err := strconv.ParseFloat(getFlagDefault(f), 64)
 		if err != nil {
 			val = 0
@@ -74,7 +74,7 @@ func newFlag(kind reflect.Kind, f reflect.StructField, dest interface{}) cli.Fla
 			Usage:       getFlagUsage(f),
 			Value:       val,
 		}
-	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32:
+	case reflect.Int:
 		val, err := strconv.ParseInt(getFlagDefault(f), 10, 64)
 		if err != nil {
 			val = 0
@@ -88,7 +88,7 @@ func newFlag(kind reflect.Kind, f reflect.StructField, dest interface{}) cli.Fla
 			Usage:       getFlagUsage(f),
 			Value:       int(val),
 		}
-	case reflect.Int64, reflect.Uint64:
+	case reflect.Int64:
 		switch f.Type.String() {
 		case "time.Duration":
 			val, err := time.ParseDuration(getFlagDefault(f))

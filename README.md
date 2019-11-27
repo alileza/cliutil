@@ -8,14 +8,14 @@ github.com/urfave/cli utilities function, to simplify cli app development
 
 ```go
 var config struct {
-		NodeID           string `default:"ulala"`
-		LogLevel         string `usage:"just to see logs"`
-		ListenAddress    string
-		AdvertiseAddress string
-		MigrationPath    string
-		DatabaseDSN      string
-		Test             int64
-		SkipMigration    time.Duration
+    NodeID           string `default:"ulala"`
+    LogLevel         string `usage:"just to see logs"`
+    ListenAddress    string
+    AdvertiseAddress string
+    MigrationPath    string
+    DatabaseDSN      string
+    Test             int64
+    SkipMigration    time.Duration
 }
 
 app := cli.NewApp()
